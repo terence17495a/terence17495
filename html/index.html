@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link href=".\src\css\index.css" rel="stylesheet" />
+  <link href=".\src\css\reset.css" rel="stylesheet" />
+  <script  src=".\src\vue.js"></script>
+  <title>MyComputer</title>
+</head>
+<body onload="ShowTime()">
+  <div id="app">   
+
+          <div id="loginPage" v-if="!isHidden">
+            <div id="loginLogo">
+                <img src=".\src\img\loginLogo.png" alt="loginLogo"/>
+            </div>
+            <div class="loginMain">
+              <div class="loginMainLogo">
+                  <img src=".\src\img\lock.png" alt="lock" />
+              </div>
+              <div class="loginMainBar">
+                  <p>Secure Authentication Services</p>
+                  <button type="button">
+                    <div><img src=".\src\img\windowCloseButton.png" alt="X" /></button></div>
+                  </button>
+              </div>
+              <div id="login">
+                <div id="errorPassword"> <p>{{result}}</p></div>
+                <div><p>Please Enter Password</p></div>
+                <div id="passwordBox">                     
+                  Password :<input id="password" type="password" v-model="password"></input>             
+                </div>
+                <div id="loginButton">                    
+                  <button type="button" v-on:click="test2">Login</button>               
+                </div>
+              </div>
+            </div>            
+    <div >
+      <img id = "win10Bg"src=".\src\img\photo1.jpg" alt="BG">
+      <div>      
+        <div id="selectList">
+          <div id="selec1" @dblclick="open">
+            <img src=".\src\img\MyPhotos.png" alt="selectLogo" >
+            <div><p>MyPhotos</p></div>
+          </div>
+          <div id="selec2" @dblclick="open">
+            <img src=".\src\img\MyVideo.png" alt="selectLogo">
+            <div><p>MyVideo</p></div>
+          </div>
+          <div id="selec3" @dblclick="open">
+            <img src=".\src\img\Link.png" alt="selectLogo">
+            <div><p>Link</p></div>
+          </div>
+        </div>      
+      
+        <div class="windowMain1" v-if="windowMain1isHidden">
+          <div class="windowMainBar">
+            <p>MyPhotos</p>
+            <button type="button" @click="close">
+              <div><img src=".\src\img\windowCloseButton.png" alt="X" /></div>
+            </button>
+          </div>
+          <div id="contentBG"><img src=".\src\img\contentBG.png"></div>
+          <div class="content1">
+            <img class="photo" src=".\src\img\photo10.jpg" />
+
+            <p class="photo1Text">Hi~I am Chow Ho Wai, I am going to show you about my artworks that was when I hiking.</p>
+            
+            <div>
+              <img class="photo2" src=".\src\img\photo3.jpg" />
+              <img class="photo2" src=".\src\img\photo8.jpg" />
+            </div>
+            <p class="photo2Text">The topic is "Nature & City". Hong Kong is also famous as the Concrete jungle in the world.</p>
+            
+            <img class="photo1" src=".\src\img\photo4.jpg" />
+            <p class="photo1Text">But it still have a lot of breathtaking natural beauty. Moreover, there inclusion some fascinating building.</p>          
+          
+            <div>
+              <img class="photo2" src=".\src\img\photo6.jpg" />
+              <img class="photo2" src=".\src\img\photo7.jpg" />
+            </div>
+            <p class="photo2Text">I hope more people to know that how beautiful this place is!</p>
+              
+            <img class="photo1" src=".\src\img\photo9.jpg" />
+            <p class="photo1Text">That's what I want to show you!</p>          
+            <img class="photo1" src=".\src\img\photo5.jpg" />
+          </div>
+        </div>
+
+        <div class="windowMain2" v-if="windowMain2isHidden">
+          <div class="windowMainBar" >
+            <p>MyVideo</p>
+              <button type="button" @click="close">
+                <div><img src=".\src\img\windowCloseButton.png" alt="X" /></div>
+              </button>
+          </div>
+          
+          <div class="content2">
+            <iframe class="video" src="https://www.youtube.com/embed/TwWJGQWiar8" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p class="videoText">Synopsis : The story is about a boy living in the depressed, helpless and no choice life.
+              <br> let's see How he to get out of this trouble.
+              <br> This is a group project.
+              <br>IVE - DAVP (sem3)
+              <br>5 of members involved in the project.
+              <br>I am responsible for the scriptwriter, scene, lead and properties. 
+              <br>20% of your workload for the project.
+            </p>
+            <iframe  class="video" src="https://www.youtube.com/embed/f5xQgLZHkRY" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p class="videoText">This video have 6 parts.
+              <br>1.the boy before going to travel. 
+              <br>2.talk about the no choice boy's Daily life - Restaurant. 
+              <br>3.talk about the no choice boy's Daily life - Working place.
+              <br>4a.talk about the no choice boy's Daily life - Dating.
+              <br>4b.the boy want to change his life.
+              <br>5.He did it, and have a new Happy life.
+              <br>This story main idea is "Choice Always Exists". Actually this implies they have no courage to face or have not made enough effort for what they want. 
+              <br>**If you are interested to know more, please double click the "Link" button in the left hand side.</p>
+            <iframe class="video" src="https://www.youtube.com/embed/shH17Uj-Cyg" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p class="videoText">It's a flash animation for the a online flower shop webpage. there's slogan "fast, on time,any where".
+               The story is about a boy dating a girl and he had order a bouquet of flower on the online shop. So, the courier show in the park on time and give the flower to the boy. 
+              In the end, the courier drive a motorcycle and go to next place.</p>
+          </div>
+        </div>
+        
+        <div class="windowMain3" v-if="windowMain3isHidden">
+          <div class="windowMainBar" >
+            <p>Link</p>
+                <button type="button" @click="close">
+                  <div><img src=".\src\img\windowCloseButton.png" alt="X" /></div>
+                </button>
+          </div>
+          <div class="content3">   
+            <div class="link">
+              <a href="https://photos.app.goo.gl/X8rxuzNu1aaTE2hr9" target="_blank"><img src=".\src\img\photoLogo.png"></a>              
+              <p >Click the logo to view more about "Nature & City" works.</p>
+            </div>
+              
+            
+            <div class="link">
+              <a href="https://drive.google.com/drive/folders/1AWWCpKgogs13IjibsbJhqMKD1SJSALl8?usp=sharing" target="_blank"><img src=".\src\img\storyLogo.png"></a>
+              <p>Click the logo to view more about "DECISION", The part I am responsible for this video.</p>
+            </div>
+           
+            <div class="link">
+              <a href="https://www.youtube.com/watch?v=cUC8nnfbQGM&list=PLSxCmWAdv9k7Zaigbj9ESHVt9olTw1dvl" target="_blank"><img src=".\src\img\gameDemologo.png"></a>
+              <p>Click the logo to view more about our group's FYP demo.This is a group project.
+                5 of members involved in the project.
+                I am responsible for the level design, UI design, map design and testing. 
+                20% of your workload for the project.
+                This project has 2 part, 2people make a android app game and 3 people make a PC game. 
+                There are two game share a one database and have some item can pass each other.
+                I am group in PC game.
+              </p>
+            </div>
+
+          </div>
+        </div>  
+      </div>
+    </div>
+    <div id="winToolbar">
+      <div id="startButtonControl">
+        <div id="startButtonPage" v-show='!isHidden'>
+
+        </div>
+        <img id="startButton" @click='isHidden = !isHidden' src=".\src\img\startButton.png" alt="satrtButton">
+      </div>
+      <img src=".\src\img\googleChrome.png" @click='open()' alt="Google">
+      <img>
+      <img>
+      <div id="clock" >
+          <p id="date"></p>
+          <p id="time" ></p>
+       </div>
+    </div>    
+  </div>
+    <script src=".\src\index.js"></script>
+</body>
+</html>
